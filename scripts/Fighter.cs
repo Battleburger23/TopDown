@@ -10,7 +10,7 @@ public class Fighter : MonoBehaviour
     public float pushRecoverySpeed = 0.2f;
 
 
-    //Immunity
+    //Immunnität
     protected float immuneTime = 1.0f;
     protected float lastImmune;
 
@@ -18,7 +18,7 @@ public class Fighter : MonoBehaviour
     protected Vector3 pushDirection;
 
 
-    // alle "Fighters" k�nnen sterben und schaden bekommen(FERTIG MACHEN)!
+    // alle "Fighters" können sterben und schaden bekommen(FERTIG MACHEN)!
     protected virtual void ReciveDamage(Damage dmg)
     {
         if(Time.time -lastImmune > immuneTime)

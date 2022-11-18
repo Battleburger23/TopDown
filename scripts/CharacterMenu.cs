@@ -5,17 +5,17 @@ using UnityEngine.UI;
 
 public class CharacterMenu : MonoBehaviour
 {
-    // Text fields
+    // Text felder
     public Text levelText, hitpointText, pesosText, upgradeCostText, xpText;
 
 
-    // Logic
+    // Logik
     private int currentCharacterSelection = 0;
     public Image characterSelectionSprite;
     public Image weaponSprite;
     public RectTransform xpBar;
 
-    //Character Selection
+    //Character auswahl
     public void OnArrowClick(bool right)
 
     {
@@ -23,7 +23,7 @@ public class CharacterMenu : MonoBehaviour
         {
             currentCharacterSelection++;
 
-            //If we went too far away
+            //falls wir zu weit gegangen sind
             if (currentCharacterSelection == GameManager.instance.playerSprites.Count)
                 currentCharacterSelection = 0;
 
@@ -34,7 +34,7 @@ public class CharacterMenu : MonoBehaviour
         {
             currentCharacterSelection--;
 
-            //If we went too far away
+            //falls wir zu weit gegangen sind
             if (currentCharacterSelection < 0)
                 currentCharacterSelection = GameManager.instance.playerSprites.Count - 1;
 
@@ -47,7 +47,7 @@ public class CharacterMenu : MonoBehaviour
         GameManager.instance.player.SwapSprite(currentCharacterSelection);
     }
 
-    //Wepon Upgrade
+    //Waffe Upgraden
     public void OnUpgradeClick()
     {
         if (GameManager.instance.TryUpgradeWeapon())
@@ -55,10 +55,10 @@ public class CharacterMenu : MonoBehaviour
     }
 
 
-    //Update the character Information
+    //Die informationen vom spieler updaten
     public void UpdateMenu()
     {
-        //Weapon
+        //Waffe
         weaponSprite.sprite = GameManager.instance.weaponSprites[GameManager.instance.weapon.weaponLevel];
         if(GameManager.instance.weapon.weaponLevel == GameManager.instance.weaponPrices.Count)
             upgradeCostText.text = "MAX";
